@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Galerie d'images</title>
+    <style>
+      body {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        background-attachment: fixed;
+        background-image: url("../ryunosuke-kikuno-RPSyG18-nSk-unsplash22.jpg");
+        color: hsla(0, 0%, 0%, 1);
+        text-align: left;
+        font-size: 20px;
+        font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      }
+      /* Définition du style des images et des boutons */
+      img {
+        width: 150px;
+        height: 150px;
+        margin-right: 20px;
+        cursor: pointer;
+      }
+      .image {
+        width: 250px;
+        height: 250px;
+        box-shadow: 2px 2px 15px 10px rgba(0, 0, 0, 0.333);
+      }
+      #selected-image {
+        width: 30%;
+
+        height: auto;
+      }
+      button {
+        margin: 10px;
+        padding: 10px 20px;
+        border-radius: 5px;
+        border: none;
+        color: #fff;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      button:hover {
+        background-color: #5c616a;
+        color: #fff;
+        border: 2px solid transparent;
+
+      }
+      button:focus {
+        outline: none;
+      }
+      button:active {
+        transform: translateY(2px);
+      }
+      .bouton-vert {
+        background-color: transparent;
+        color: rgb(199, 98, 98);
+        
+        padding: 10px;
+        border: 2px solid rgb(126, 114, 114);
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.5s;
+      }
+
+      .bouton-vert:hover {
+        background-color: #ff6347;
+      }
+
+      .bouton-rouge {
+        background-color: transparent;
+        color: rgb(199, 98, 98);
+
+        padding: 10px;
+        border: 2px solid rgb(126, 114, 114);
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.5s;
+      }
+
+      .bouton-rouge:hover {
+        background-color: #006666;
+      }
+      .bouton-bleu {
+        background-color: transparent;
+        color: rgb(199, 98, 98);
+
+        padding: 10px;
+        border: 2px solid rgb(126, 114, 114);
+
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.5s;
+      }
+
+      .bouton-bleu:hover {
+        background-color: #ff6347;
+      }
+      .bouton-jaune {
+        background-color: transparent;
+        color: rgb(199, 98, 98);
+        padding: 10px;
+        border: 2px solid rgb(126, 114, 114);
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.5s;
+      }
+
+      .bouton-jaune:hover {
+        background-color: #006666;
+      }
+      .milieu {
+        display: flex;
+        flex-direction: column;
+      }
+      .images {
+        display: flex;
+        justify-content: center;
+      }
+      .img {
+        display: flex;
+        justify-content: center;
+      }
+      .img1 {
+        display: flex;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 align="center">
+      <strong
+        ><u>Galerie d'images</u></strong
+      >
+    </h2>
+    <div class="milieu">
+      <div class="images">
+        <img
+          class="image"
+          src="https://img.freepik.com/free-photo/beautiful-scenery-green-landscape-mountains-enveloped-fog_181624-9636.jpg?w=1060&t=st=1682108552~exp=1682109152~hmac=d87cbd635be62172ea4438cf0565027eca30915a74d80b2f3c9d672c75766aa3"
+          onclick="selectImage('https://img.freepik.com/free-photo/beautiful-scenery-green-landscape-mountains-enveloped-fog_181624-9636.jpg?w=1060&t=st=1682108552~exp=1682109152~hmac=d87cbd635be62172ea4438cf0565027eca30915a74d80b2f3c9d672c75766aa3')"
+        />
+        <img
+          class="image"
+          src="https://img.freepik.com/free-photo/ortakoy-mosque-viewed-from-bosphorus-riveristanbul-turkey_628469-169.jpg?w=1060&t=st=1682108612~exp=1682109212~hmac=de397772cfbe95ff1fcf56bacfca2994cf6e5c48b12a8e3defffecea6d28f98a"
+          onclick="selectImage('https://img.freepik.com/free-photo/ortakoy-mosque-viewed-from-bosphorus-riveristanbul-turkey_628469-169.jpg?w=1060&t=st=1682108612~exp=1682109212~hmac=de397772cfbe95ff1fcf56bacfca2994cf6e5c48b12a8e3defffecea6d28f98a')"
+        />
+        <img
+          class="image"
+          src="https://img.freepik.com/free-photo/long-shot-multi-colored-hot-air-balloons-floating-mountains_181624-5586.jpg?w=1060&t=st=1682108675~exp=1682109275~hmac=ce5fe2310175c9136dca4e9c17851f5557239f09ef4db4d7ccf0d05ad9253e9e"
+          onclick="selectImage('https://img.freepik.com/free-photo/long-shot-multi-colored-hot-air-balloons-floating-mountains_181624-5586.jpg?w=1060&t=st=1682108675~exp=1682109275~hmac=ce5fe2310175c9136dca4e9c17851f5557239f09ef4db4d7ccf0d05ad9253e9e')"
+        />
+      </div>
+      <div class="img">
+        <button class="bouton-vert" onclick="nextImage()">Suivant</button>
+        <button class="bouton-rouge" onclick="previousImage()">
+          Précédent
+        </button>
+        <button class="bouton-bleu" onclick="showImage()" id="showButton">
+          Afficher
+        </button>
+        <button class="bouton-jaune" onclick="hideImage()" id="hideButton">
+          Masquer
+        </button>
+      </div>
+      <div class="img1">
+        <img id="selected-image" />
+      </div>
+      <h2 id="title" style="text-align: center"></h2>
+    </div>
+
+    <script src="/index.js">
+      
+    </script>
+  </body>
+</html>
