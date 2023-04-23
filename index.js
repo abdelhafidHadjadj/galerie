@@ -24,7 +24,7 @@ title.innerHTML = `image 3 : Capadokia`
 // fonction pour la selection de l'image quand on click sur l'image
 // parametre de la fonction => imageUrl
 function imageName(index) {
-  return  index == 1 ? title.innerHTML = `image ${index} : Trabzon` : index == 2 ? title.innerHTML = `image ${index} : Istanbul` : title.innerHTML = `image ${index} : Capadokia` 
+  return  index == 1 ? title.innerHTML = `image ${index} : Trabzon` : index == 2 ? title.innerHTML = `image ${index} : Istanbul` : title.innerHTML = `image ${index} : Cappadocia` 
 }  
 
 function selectImage(imageUrl) {
