@@ -1,173 +1,182 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Galerie d'images</title>
+    <title>Liste des taches</title>
     <style>
+      /* CSS */
+ 
       body {
-       
-    color: #fff;
-        font-size: 20px;
-        font-family:  "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
-    height: 100%;
-background-color: #121518;
-    }
-      /* Définition du style des images et des boutons */
-      img {
-        width: 150px;
-        height: 150px;
-        margin-right: 20px;
-        cursor: pointer;
-      }
-      .image {
-        width: 250px;
-        height: 250px;
-        box-shadow: 2px 2px 15px 10px rgba(0, 0, 0, 0.333);
-      }
-      #selected-image {
-        width: 30%;
-
-        height: auto;
-      }
-      button {
-        margin: 10px;
-        padding: 10px 20px;
-        border-radius: 5px;
-        border: none;
-        color: #fff;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-      }
-      button:hover {
-        background-color: #5c616a;
-        color: #fff;
-        border: 2px solid transparent;
-
-      }
-      button:focus {
-        outline: none;
-      }
-      button:active {
-        transform: translateY(2px);
-      }
-      .bouton-vert {
-        background-color: transparent;
-        color: rgb(199, 98, 98);
+        background-color: #121518;
+        color: white;
+        font-family:Arial, Helvetica, sans-serif
         
-        padding: 10px;
-        border: 2px solid rgb(126, 114, 114);
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.5s;
       }
 
-      .bouton-vert:hover {
-        background-color: #ff6347;
+      .button-48:before {
+        animation: opacityFallbackOut 0.5s step-end forwards;
+        backface-visibility: hidden;
+        background-color: #ebebeb;
+        clip-path: polygon(-1% 0, 0 0, -25% 100%, -1% 100%);
+        content: "";
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        transform: translateZ(0);
+        transition: clip-path 0.5s cubic-bezier(0.165, 0.84, 0.44, 1),
+          -webkit-clip-path 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+        width: 100%;
       }
 
-      .bouton-rouge {
-        background-color: transparent;
-        color: rgb(199, 98, 98);
-
-        padding: 10px;
-        border: 2px solid rgb(126, 114, 114);
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.5s;
+      .button-48:hover:before {
+        animation: opacityFallbackIn 0s step-start forwards;
+        clip-path: polygon(0 0, 101% 0, 101% 101%, 0 101%);
       }
 
-      .bouton-rouge:hover {
-        background-color: #006666;
-      }
-      .bouton-bleu {
-        background-color: transparent;
-        color: rgb(199, 98, 98);
-
-        padding: 10px;
-        border: 2px solid rgb(126, 114, 114);
-
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.5s;
+      .button-48:after {
+        background-color: #ffffff;
       }
 
-      .bouton-bleu:hover {
-        background-color: #ff6347;
+      .button-48 span {
+        z-index: 1;
+        position: relative;
       }
-      .bouton-jaune {
-        background-color: transparent;
-        color: rgb(199, 98, 98);
-        padding: 10px;
-        border: 2px solid rgb(126, 114, 114);
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.5s;
+      table {
+        background-color: ;
+      }
+      body {
+        background-image: url("photo-1501139083538-0139583c060f\\(1\).jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      table {
+        border-collapse: collapse;
+        width: 50%;
+        margin: 0 auto;
       }
 
-      .bouton-jaune:hover {
-        background-color: #006666;
-      }
-      .milieu {
-        display: flex;
-        flex-direction: column;
-      }
-      .images {
-        display: flex;
-        justify-content: center;
-      }
-      .img {
-        display: flex;
-        justify-content: center;
-      }
-      .img1 {
-        display: flex;
-        justify-content: center;
+      th,
+      td {
+        text-align: left;
+        padding: 8px;
       }
     </style>
   </head>
   <body>
-    <h2 align="center">
-      <strong
-        ><u>Galerie d'images</u></strong
-      >
-    </h2>
-    <div class="milieu">
-      <div class="images">
-        <img
-          class="image"
-          src="https://img.freepik.com/free-photo/beautiful-scenery-green-landscape-mountains-enveloped-fog_181624-9636.jpg?w=1060&t=st=1682108552~exp=1682109152~hmac=d87cbd635be62172ea4438cf0565027eca30915a74d80b2f3c9d672c75766aa3"
-          onclick="selectImage('https://img.freepik.com/free-photo/beautiful-scenery-green-landscape-mountains-enveloped-fog_181624-9636.jpg?w=1060&t=st=1682108552~exp=1682109152~hmac=d87cbd635be62172ea4438cf0565027eca30915a74d80b2f3c9d672c75766aa3')"
-        />
-        <img
-          class="image"
-          src="https://img.freepik.com/free-photo/ortakoy-mosque-viewed-from-bosphorus-riveristanbul-turkey_628469-169.jpg?w=1060&t=st=1682108612~exp=1682109212~hmac=de397772cfbe95ff1fcf56bacfca2994cf6e5c48b12a8e3defffecea6d28f98a"
-          onclick="selectImage('https://img.freepik.com/free-photo/ortakoy-mosque-viewed-from-bosphorus-riveristanbul-turkey_628469-169.jpg?w=1060&t=st=1682108612~exp=1682109212~hmac=de397772cfbe95ff1fcf56bacfca2994cf6e5c48b12a8e3defffecea6d28f98a')"
-        />
-        <img
-          class="image"
-          src="https://img.freepik.com/free-photo/long-shot-multi-colored-hot-air-balloons-floating-mountains_181624-5586.jpg?w=1060&t=st=1682108675~exp=1682109275~hmac=ce5fe2310175c9136dca4e9c17851f5557239f09ef4db4d7ccf0d05ad9253e9e"
-          onclick="selectImage('https://img.freepik.com/free-photo/long-shot-multi-colored-hot-air-balloons-floating-mountains_181624-5586.jpg?w=1060&t=st=1682108675~exp=1682109275~hmac=ce5fe2310175c9136dca4e9c17851f5557239f09ef4db4d7ccf0d05ad9253e9e')"
-        />
-      </div>
-      <div class="img">
-        <button class="bouton-vert" onclick="nextImage()">Suivant</button>
-        <button class="bouton-rouge" onclick="previousImage()">
-          Précédent
-        </button>
-        <button class="bouton-bleu" onclick="showImage()" id="showButton">
-          Afficher
-        </button>
-        <button class="bouton-jaune" onclick="hideImage()" id="hideButton">
-          Masquer
-        </button>
-      </div>
-      <div class="img1">
-        <img id="selected-image" />
-      </div>
-      <h2 id="title" style="text-align: center"></h2>
-    </div>
+    <h1 align="center"><u>Liste de tâches</u></h1>
+    <p align="center" id="time" style="font-size: 36px"></p>
+    <table width="100%" border="2">
+      <tbody>
+        <tr>
+          <th scope="col"><h2>Ajouter une tâche</h2></th>
+          <th scope="col"><h2>Liste des tâches actives</h2></th>
+        </tr>
+        <tr>
+          <td rowspan="2">
+            <form>
+              <label for="designation">Désignation:</label>
+              <input
+                type="text"
+                id="designation"
+                name="designation"
+                required
+              /><br /><br />
 
-    <script src="/index.js">
-      
-    </script>
+              <label for="duree">Durée d'expiration :</label>
+              <input
+                type="number"
+                id="duree"
+                name="duree"
+                required
+              /><br /><br />
+
+              <label for="priorite">Priorité:</label>
+              <select id="priorite" name="priorite">
+                <option value="faible">Faible</option>
+                <option value="moyenne">Moyenne</option>
+                <option value="elevee">Élevée</option></select
+              ><br /><br />
+
+              <input type="button" value="Ajouter" onclick="Tache()" />
+            </form>
+          </td>
+          <td>
+            <table id="tableauTaches">
+              <tr>
+                <th>Désignation</th>
+                <th>Heure d'ajout</th>
+                <th>Priorité</th>
+                <th>Durée d'expiration</th>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td id="nbr-tache">Nombre de taches : 0</td>
+        </tr>
+      </tbody>
+    </table>
   </body>
+  <script>
+    let nbr = 0;
+    function Tache() {
+      var designation = document.getElementById("designation").value;
+      var duree = document.getElementById("duree").value;
+      var priorite = document.getElementById("priorite").value;
+      var nbr_de_tache = document.getElementById("nbr-tache");
+
+      var tableauTaches = document.getElementById("tableauTaches");
+      var nouvelleLigne = tableauTaches.insertRow(-1);
+      var celluleDesignation = nouvelleLigne.insertCell(0);
+      var celluleHeure = nouvelleLigne.insertCell(1);
+      var cellulePriorite = nouvelleLigne.insertCell(2);
+      var celluleDuree = nouvelleLigne.insertCell(3);
+      celluleDesignation.innerHTML = designation;
+      nbr++;
+
+      var maintenant = new Date();
+      var heure = maintenant.getHours();
+      var minutes = maintenant.getMinutes();
+      var secondes = maintenant.getSeconds();
+      var heureact = heure + ":" + minutes + ":" + secondes;
+
+      celluleHeure.innerHTML = heureact;
+      cellulePriorite.innerHTML = priorite;
+      celluleDuree.innerHTML = duree;
+
+      document.cookie = "tache_" + designation + "=" + duree + "; path=/";
+
+      function supprimer() {
+        tableauTaches.deleteRow(nouvelleLigne.rowIndex);
+        document.cookie =
+          "tache_" +
+          designation +
+          "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+
+        nbr--;
+        console.log(nbr);
+        nbr_de_tache.innerHTML = `nombre de tache ${nbr}`;
+      }
+      console.log(nbr);
+
+      nbr_de_tache.innerHTML = `nombre de tache ${nbr}`;
+
+      setTimeout(supprimer, duree * 1000);
+      console.log(nbr);
+    }
+
+    const heureElement = document.getElementById("heure");
+
+    function Heure() {
+      var d = new Date();
+      var hours = d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+      console.log(hours);
+      document.getElementById("time").innerHTML = hours;
+      setTimeout(Heure, 1000); //pour la synchronisation
+    }
+
+    Heure();
+  </script>
+
 </html>
